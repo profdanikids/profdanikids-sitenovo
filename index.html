@@ -196,7 +196,20 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
 .wpp-float{position:fixed;bottom:26px;right:26px;z-index:200;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 18px rgba(37,211,102,0.55);text-decoration:none;animation:wpp-pulse 2.5s infinite}
 @keyframes wpp-pulse{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,0.55)}50%{box-shadow:0 4px 28px rgba(37,211,102,0.85),0 0 0 8px rgba(37,211,102,0.12)}}
 
-/* REVEAL */
+/* POPUP BOAS-VINDAS */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;display:flex;align-items:flex-end;justify-content:center;padding:20px;animation:fadeIn .3s ease}
+.popup-overlay.hidden{display:none}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.popup-box{background:#fff;border-radius:24px 24px 24px 24px;padding:28px 24px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:slideUp .4s ease}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.popup-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--texto-muted);line-height:1}
+.popup-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--azul);margin-bottom:14px}
+.popup-title{font-family:'Baloo 2',sans-serif;font-size:20px;font-weight:900;color:var(--texto);margin-bottom:8px;line-height:1.2}
+.popup-msg{font-size:14px;color:var(--texto-muted);line-height:1.7;margin-bottom:20px}
+.popup-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;border:none;border-radius:50px;padding:14px 28px;font-size:15px;font-weight:800;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;width:100%;box-shadow:0 4px 16px rgba(37,211,102,0.4);transition:transform .2s,box-shadow .2s}
+.popup-btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(37,211,102,0.5)}
+.popup-skip{display:block;text-align:center;margin-top:12px;font-size:13px;color:var(--texto-muted);cursor:pointer;background:none;border:none;font-family:'Nunito',sans-serif}
+.popup-skip:hover{color:var(--texto)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -229,7 +242,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
     <a href="#sobre">Sobre Mim</a>
     <a href="#contato">Contato</a>
   </div>
-  <a href="https://wa.me/message/53KVBFSSMWBJE1" class="nav-cta" target="_blank">💬 WhatsApp</a>
+  <a href="#" data-wpp="geral" class="nav-cta" target="_blank">💬 WhatsApp</a>
 </nav>
 
 <!-- HERO -->
@@ -256,8 +269,8 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
       <h1 class="hero-title">Movimento que<br><span class="acc-laranja">Transforma</span><br><span class="acc-azul">Crianças</span></h1>
       <p class="hero-sub">Aulas personalizadas, aulas coletivas, recreação profissional em eventos e mentoria para profissionais. Para crianças a partir de 3 anos desenvolverem confiança, habilidades e muito amor pelo movimento.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/message/53KVBFSSMWBJE1" class="btn-laranja" target="_blank">🎯 Aula Experimental Gratuita</a>
-        <a href="https://wa.me/message/53KVBFSSMWBJE1" class="btn-branco" target="_blank">🎉 Orçamento para Evento</a>
+        <a href="#" data-wpp="aula" class="btn-laranja" target="_blank">🎯 Aula Experimental Gratuita</a>
+        <a href="#" data-wpp="evento" class="btn-branco" target="_blank">🎉 Orçamento para Evento</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-num">+200</div><div class="stat-label">crianças atendidas</div></div>
@@ -307,7 +320,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
           <li>Atendimento especial para TDAH e perfis atípicos</li>
           <li>Metodologia lúdica, aprende brincando</li>
         </ul>
-        <a href="https://wa.me/message/53KVBFSSMWBJE1" class="svc-link" style="color:var(--azul)" target="_blank">Falar sobre as aulas →</a>
+        <a href="#" data-wpp="individual" class="svc-link" style="color:var(--azul)" target="_blank">Falar sobre as aulas →</a>
       </div>
       <!-- Aulas Coletivas -->
       <div class="svc-card reveal">
@@ -321,7 +334,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
           <li><span style="color:#2E7D32;font-weight:900;font-size:12px;flex-shrink:0">✓</span>Turmas com número reduzido para atenção individualizada</li>
           <li><span style="color:#2E7D32;font-weight:900;font-size:12px;flex-shrink:0">✓</span>Desenvolvimento de comunicação e respeito às regras</li>
         </ul>
-        <a href="https://wa.me/message/53KVBFSSMWBJE1" class="svc-link" style="color:#2E7D32" target="_blank">Saber sobre aulas coletivas →</a>
+        <a href="#" data-wpp="coletiva" class="svc-link" style="color:#2E7D32" target="_blank">Saber sobre aulas coletivas →</a>
       </div>
       <!-- Recreação -->
       <div class="svc-card reveal">
@@ -335,7 +348,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
           <li>Equipe completa com uniformes profissionais</li>
           <li>Adaptamos ao espaço disponível</li>
         </ul>
-        <a href="https://wa.me/message/53KVBFSSMWBJE1" class="svc-link" style="color:var(--laranja)" target="_blank">Pedir orçamento →</a>
+        <a href="#" data-wpp="evento" class="svc-link" style="color:var(--laranja)" target="_blank">Pedir orçamento →</a>
       </div>
       <!-- Mentoria -->
       <div class="svc-card reveal">
@@ -349,7 +362,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
           <li><span style="color:#6A1B9A;font-weight:900;font-size:12px;flex-shrink:0">✓</span>Atendimento a crianças com TDAH e perfis atípicos</li>
           <li><span style="color:#6A1B9A;font-weight:900;font-size:12px;flex-shrink:0">✓</span>Acompanhamento e suporte continuado</li>
         </ul>
-        <a href="https://wa.me/message/53KVBFSSMWBJE1" class="svc-link" style="color:#6A1B9A" target="_blank">Conhecer a mentoria →</a>
+        <a href="https://form.respondi.app/rosxNUSc" class="svc-link" style="color:#6A1B9A" target="_blank">Quero conhecer a mentoria →</a>
       </div>
     </div>
   </div>
@@ -408,7 +421,6 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
         <div class="g-item"><img src="./IMG_6193.jpeg" alt="Medalhas coletivas" loading="lazy"><div class="g-cap">Todos campeões!</div></div>
         <div class="g-item"><img src="./IMG_5471.JPEG" alt="Turma feliz" loading="lazy"><div class="g-cap">Diversão garantida</div></div>
         <div class="g-item"><img src="./IMG_5117.jpeg" alt="Alunos" loading="lazy"><div class="g-cap">Momento especial</div></div>
-        <div class="g-item"><img src="./IMG_0495.jpeg" alt="Aula" loading="lazy"><div class="g-cap">Em ação</div></div>
       </div>
     </div>
 
@@ -425,8 +437,8 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
         <div class="g-item"><img src="./IMG_0970.jpeg" alt="Recreação" loading="lazy"><div class="g-cap">Crianças com balões</div></div>
         <div class="g-item"><img src="./IMG_7934.jpeg" alt="Festa" loading="lazy"><div class="g-cap">Paraquedas colorido</div></div>
         <div class="g-item"><img src="./4743e136-cf50-4074-9664-ea8eff028681.jpeg" alt="Equipe evento" loading="lazy"><div class="g-cap">Equipe no evento</div></div>
+        <div class="g-item" style="background:#f5f5f5"><img src="./IMG_5117.jpeg" alt="Brinde" loading="lazy" style="object-fit:contain;object-position:center"><div class="g-cap">Brinde para as crianças</div></div>
         <div class="g-item"><img src="./IMG_8506.jpeg" alt="Recreação" loading="lazy"><div class="g-cap">Momentos especiais</div></div>
-        <div class="g-item"><img src="./IMG_7015.jpeg" alt="Evento" loading="lazy"><div class="g-cap">Diversão garantida</div></div>
       </div>
     </div>
 
@@ -473,7 +485,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
     </div>
     <div style="text-align:center;margin-top:30px">
       <p style="color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:16px">E com um <em style="color:#FFD600">"foi o melhor dia da minha vida"</em>, dito por um aluno saindo para o banho, é o que nos move.</p>
-      <a href="https://wa.me/message/53KVBFSSMWBJE1" class="btn-laranja" target="_blank">💬 Quero esse resultado para meu filho</a>
+      <a href="#" data-wpp="aula" class="btn-laranja" target="_blank">💬 Quero esse resultado para meu filho</a>
     </div>
   </div>
 </section>
@@ -499,7 +511,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
           <div class="hl-item"><span class="hl-icon">🏠</span><div><div class="hl-t">A Domicílio</div><div class="hl-d">Vai até a sua casa ou condomínio</div></div></div>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="https://wa.me/message/53KVBFSSMWBJE1" class="btn-laranja" target="_blank">💬 Falar com o Prof. Dani</a>
+          <a href="#" data-wpp="geral" class="btn-laranja" target="_blank">💬 Falar com o Prof. Dani</a>
           <a href="https://www.instagram.com/profdani_kids?igsh=MWhheXN1aTBxcWkwMw%3D%3D&utm_source=qr" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:13px 22px;border-radius:50px;font-weight:800;font-size:14px;text-decoration:none">📸 Instagram</a>
         </div>
       </div>
@@ -528,8 +540,8 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
     <h2>Seu filho merece se mover com alegria</h2>
     <p>A primeira aula é experimental e sem compromisso. Vamos conversar sobre o que faz sentido para a sua família.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/message/53KVBFSSMWBJE1" class="btn-wh" target="_blank">🎯 Quero a Aula Experimental</a>
-      <a href="https://wa.me/message/53KVBFSSMWBJE1" class="btn-ow" target="_blank">🎉 Orçar Evento</a>
+      <a href="#" data-wpp="aula" class="btn-wh" target="_blank">🎯 Quero a Aula Experimental</a>
+      <a href="#" data-wpp="evento" class="btn-ow" target="_blank">🎉 Orçar Evento</a>
     </div>
   </div>
 </section>
@@ -541,7 +553,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
     <h2 class="sec-title reveal">Vamos conversar?</h2>
     <p class="sec-sub reveal">Resposta rápida pelo WhatsApp. Pode mandar mensagem agora.</p>
     <div class="contact-grid">
-      <a href="https://wa.me/message/53KVBFSSMWBJE1" class="contact-card reveal" target="_blank"><span class="cc-icon">💬</span><h3>WhatsApp</h3><p>(48) 99649-7497</p></a>
+      <a href="#" data-wpp="geral" class="contact-card reveal" target="_blank"><span class="cc-icon">💬</span><h3>WhatsApp</h3><p>(48) 99649-7497</p></a>
       <a href="https://www.instagram.com/profdani_kids?igsh=MWhheXN1aTBxcWkwMw%3D%3D&utm_source=qr" class="contact-card reveal" target="_blank"><span class="cc-icon">📸</span><h3>Instagram</h3><p>@profdani_kids · +30k seguidores</p></a>
       <div class="contact-card reveal" style="cursor:default"><span class="cc-icon">📍</span><h3>Atendimento</h3><p>Florianópolis e região</p></div>
     </div>
@@ -563,13 +575,98 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
   </div>
 </footer>
 
-<a href="https://wa.me/message/53KVBFSSMWBJE1" class="wpp-float" title="Falar no WhatsApp" target="_blank">💬</a>
+<a href="#" data-wpp="geral" class="wpp-float" title="Falar no WhatsApp" target="_blank">💬</a>
 
 <script>
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
 },{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Detectar origem do visitante
+function getOrigem() {
+  const ref = document.referrer.toLowerCase();
+  if (ref.includes('instagram')) return 'Instagram';
+  if (ref.includes('google')) return 'Google';
+  if (ref.includes('facebook')) return 'Facebook';
+  if (ref.includes('tiktok')) return 'TikTok';
+  // Verificar parâmetro UTM na URL
+  const params = new URLSearchParams(window.location.search);
+  const utm = params.get('utm_source');
+  if (utm) {
+    if (utm.includes('instagram')) return 'Instagram';
+    if (utm.includes('google')) return 'Google';
+    if (utm.includes('facebook')) return 'Facebook';
+    if (utm.includes('tiktok')) return 'TikTok';
+    return utm.charAt(0).toUpperCase() + utm.slice(1);
+  }
+  return null;
+}
+
+function montarMensagem(tipo) {
+  const origem = getOrigem();
+  const numero = '5548996497497';
+  let msg = '';
+
+  if (tipo === 'aula') {
+    if (origem === 'Instagram') msg = 'Olá, Prof. Dani! Vi seu perfil no Instagram e quero agendar uma aula experimental para meu filho.';
+    else if (origem === 'Google') msg = 'Olá, Prof. Dani! Encontrei vocês no Google e quero agendar uma aula experimental para meu filho.';
+    else msg = 'Olá, Prof. Dani! Quero agendar uma aula experimental para meu filho.';
+  } else if (tipo === 'evento') {
+    if (origem === 'Instagram') msg = 'Olá, Prof. Dani! Vi seu perfil no Instagram e quero um orçamento para recreação infantil em evento.';
+    else if (origem === 'Google') msg = 'Olá, Prof. Dani! Encontrei vocês no Google e quero um orçamento para recreação infantil em evento.';
+    else msg = 'Olá, Prof. Dani! Quero um orçamento para recreação infantil em evento.';
+  } else if (tipo === 'coletiva') {
+    if (origem === 'Instagram') msg = 'Olá, Prof. Dani! Vi seu perfil no Instagram e quero saber mais sobre as aulas coletivas.';
+    else if (origem === 'Google') msg = 'Olá, Prof. Dani! Encontrei vocês no Google e quero saber mais sobre as aulas coletivas.';
+    else msg = 'Olá, Prof. Dani! Quero saber mais sobre as aulas coletivas.';
+  } else if (tipo === 'individual') {
+    if (origem === 'Instagram') msg = 'Olá, Prof. Dani! Vi seu perfil no Instagram e quero saber mais sobre as aulas personalizadas.';
+    else if (origem === 'Google') msg = 'Olá, Prof. Dani! Encontrei vocês no Google e quero saber mais sobre as aulas personalizadas.';
+    else msg = 'Olá, Prof. Dani! Quero saber mais sobre as aulas personalizadas.';
+  } else if (tipo === 'geral') {
+    if (origem === 'Instagram') msg = 'Olá, Prof. Dani! Vi seu perfil no Instagram e quero mais informações.';
+    else if (origem === 'Google') msg = 'Olá, Prof. Dani! Encontrei vocês no Google e quero mais informações.';
+    else msg = 'Olá, Prof. Dani! Quero mais informações.';
+  }
+
+  return `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+}
+
+// Aplicar links dinâmicos em todos os botões de WhatsApp
+function aplicarLinks() {
+  document.querySelectorAll('[data-wpp]').forEach(el => {
+    el.href = montarMensagem(el.dataset.wpp);
+  });
+}
+
+// Popup boas-vindas
+function fecharPopup() {
+  document.getElementById('popupBV').classList.add('hidden');
+  sessionStorage.setItem('popupVisto', '1');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  aplicarLinks();
+  if (!sessionStorage.getItem('popupVisto')) {
+    setTimeout(() => {
+      const p = document.getElementById('popupBV');
+      if(p) p.style.display = 'flex';
+    }, 2000);
+  }
+});
 </script>
+
+<!-- POPUP BOAS-VINDAS -->
+<div class="popup-overlay hidden" id="popupBV" style="display:none">
+  <div class="popup-box">
+    <button class="popup-close" onclick="fecharPopup()">✕</button>
+    <img src="./FullSizeRender.jpeg" alt="Prof. Daniel Felipe" class="popup-avatar">
+    <div class="popup-title">Olá! 👋 Seja bem-vindo!</div>
+    <p class="popup-msg">Sou o Prof. Dani e estou aqui para ajudar a encontrar a melhor solução para o desenvolvimento do seu filho. Posso te ajudar agora mesmo!</p>
+    <a href="#" data-wpp="geral" class="popup-btn" target="_blank">💬 Falar com o Prof. Dani</a>
+    <button class="popup-skip" onclick="fecharPopup()">Agora não, quero explorar o site</button>
+  </div>
+</div>
 </body>
 </html>
