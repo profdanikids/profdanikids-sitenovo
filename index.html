@@ -198,7 +198,7 @@ footer{background:#060E1A;padding:36px 6%;display:flex;align-items:center;justif
 
 /* POPUP BOAS-VINDAS */
 .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;display:flex;align-items:flex-end;justify-content:center;padding:20px;animation:fadeIn .3s ease}
-.popup-overlay.hidden{display:none}
+.popup-overlay.hidden{display:none!important}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .popup-box{background:#fff;border-radius:24px 24px 24px 24px;padding:28px 24px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:slideUp .4s ease}
 @keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
@@ -642,7 +642,9 @@ function aplicarLinks() {
 
 // Popup boas-vindas
 function fecharPopup() {
-  document.getElementById('popupBV').classList.add('hidden');
+  const p = document.getElementById('popupBV');
+  p.style.display = 'none';
+  p.classList.add('hidden');
   sessionStorage.setItem('popupVisto', '1');
 }
 
