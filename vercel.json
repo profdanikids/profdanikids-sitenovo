@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/guia", "destination": "/guia/index.html" }
-  ]
-}
