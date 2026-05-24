@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/guia", "destination": "/guia/index.html" },
+    { "source": "/guia/", "destination": "/guia/index.html" }
+  ]
+}
