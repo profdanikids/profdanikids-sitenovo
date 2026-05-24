@@ -1654,6 +1654,210 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<!-- ══════════ POP-UP VIP ══════════ -->
+<style>
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,22,40,.85);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.popup-box {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.4);
+  transform: translateY(24px) scale(.97);
+  transition: transform .4s ease;
+}
+.popup-overlay.active .popup-box {
+  transform: translateY(0) scale(1);
+}
+.popup-header {
+  background: var(--ink);
+  padding: 28px 28px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.popup-header::before {
+  content: '';
+  position: absolute;
+  right: -40px; top: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: .1;
+}
+.popup-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: rgba(255,255,255,.1);
+  border: none;
+  color: rgba(255,255,255,.6);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  z-index: 1;
+}
+.popup-close:hover { background: rgba(255,255,255,.2); }
+.popup-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+}
+.popup-header h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: #fff;
+  line-height: 1.05;
+  position: relative; z-index: 1;
+}
+.popup-header h3 span { color: var(--orange); }
+.popup-body {
+  padding: 24px 28px 28px;
+}
+.popup-body p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.popup-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.popup-perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #333;
+}
+.popup-perk span {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.popup-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 15px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(37,211,102,.3);
+  transition: transform .2s, box-shadow .2s;
+}
+.popup-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37,211,102,.4);
+}
+.popup-skip {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #aaa;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+}
+.popup-skip:hover { color: #777; }
+</style>
+
+<div class="popup-overlay" id="vipPopup">
+  <div class="popup-box">
+    <div class="popup-header">
+      <button class="popup-close" onclick="closePopup()">✕</button>
+      <div class="popup-tag">Acesso exclusivo</div>
+      <h3>CHEGA DE AULAS<br><span>BAGUNÇADAS.</span></h3>
+    </div>
+    <div class="popup-body">
+      <p>Estou preparando um workshop exclusivo para professores que querem transformar de vez suas aulas de movimento. Entra no grupo VIP e garante acesso antes de todo mundo.</p>
+      <div class="popup-perks">
+        <div class="popup-perk"><span>⚡</span> Acesso antes do lançamento</div>
+        <div class="popup-perk"><span>🎁</span> Condições exclusivas para quem entrar agora</div>
+        <div class="popup-perk"><span>📲</span> Grupo direto com o Prof. Dani</div>
+        <div class="popup-perk"><span>🧩</span> Conteúdo antecipado do workshop</div>
+      </div>
+      <a href="https://chat.whatsapp.com/KkvbtRa4c0c08eUb1FJQtk?mode=gi_t" target="_blank" class="popup-cta">
+        💬 Entrar no Grupo VIP agora
+      </a>
+      <button class="popup-skip" onclick="closePopup()">Continuar lendo o guia</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Pop-up aparece após 40 segundos ou quando rolar 60% da página
+let popupShown = false;
+
+function showPopup() {
+  if (popupShown) return;
+  popupShown = true;
+  document.getElementById('vipPopup').classList.add('active');
+}
+
+function closePopup() {
+  document.getElementById('vipPopup').classList.remove('active');
+  // Não mostra de novo nessa sessão
+  sessionStorage.setItem('popupClosed', '1');
+}
+
+// Fecha clicando fora do box
+document.getElementById('vipPopup').addEventListener('click', function(e) {
+  if (e.target === this) closePopup();
+});
+
+// Timer: 40 segundos
+const popupTimer = setTimeout(() => {
+  if (!sessionStorage.getItem('popupClosed')) showPopup();
+}, 40000);
+
+// Scroll: 60% da página
+window.addEventListener('scroll', () => {
+  if (popupShown || sessionStorage.getItem('popupClosed')) return;
+  const scrolled = window.scrollY + window.innerHeight;
+  const total = document.body.scrollHeight;
+  if (scrolled / total > 0.6) showPopup();
+}, { passive: true });
+</script>
+
 <!-- ══════════ FOOTER ══════════ -->
 <div class="footer">
   <div class="footer-brand">PROF. DANI <span>profdani_kids · Personal Pro</span></div>
