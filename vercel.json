@@ -1,8 +1,6 @@
-{
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/guia", "destination": "/guia/index.html" },
-    { "source": "/guia/", "destination": "/guia/index.html" }
-  ]
-}
+profdanikids-sitenovo/
+├── index.html        ← site principal
+├── vercel.json       ← configuração (nome exato!)
+├── GUIA/
+│   └── index.html    ← o guia
+└── imagens...
