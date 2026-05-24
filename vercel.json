@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/guia", "destination": "/guia/index.html" },
+    { "source": "/guia/", "destination": "/guia/index.html" }
+  ]
+}
