@@ -7,8 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 @page { margin: 0; padding: 0; size: 794px 1123px; }
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html, body { margin:0!important; padding:0!important; background:#0a1628; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; } img { max-width:100%; }
+html, body { margin:0!important; padding:0!important; background:#0a1628; overflow-x:hidden; }
 
 :root {
   --ink:    #0a1628;
@@ -258,6 +258,8 @@ body::after {
   background: var(--cream);
   padding: 56px 64px;
   position: relative;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 .page::before {
   content:'';
@@ -901,6 +903,180 @@ p:last-child { margin-bottom:0; }
 .obs-cta .obs-icon { font-size:32px; opacity:.4; }
 
 hr.divider { border:none; height:1px; background:rgba(0,0,0,.08); margin:28px 0; }
+
+/* ════════════════════════════════
+   RESPONSIVIDADE MOBILE
+════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Página base ── */
+  .page {
+    padding: 36px 24px;
+  }
+
+  .page-title {
+    font-size: 28px !important;
+    line-height: 1.1;
+  }
+
+  .page-lead {
+    font-size: 14px;
+  }
+
+  /* ── Seção história ── */
+  .story-photo {
+    height: 260px;
+  }
+
+  .story-text {
+    padding: 28px 24px;
+  }
+
+  .story-text h3 {
+    font-size: 24px;
+  }
+
+  .story-stats {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .stat .n {
+    font-size: 30px;
+  }
+
+  /* ── Steps (momentos da aula) ── */
+  .steps {
+    gap: 12px;
+  }
+
+  .step {
+    grid-template-columns: 48px 1fr !important;
+    display: grid;
+  }
+
+  /* ── Habilidades (3 colunas → 1 coluna) ── */
+  .hab-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* ── Fases (2 colunas → 1 coluna) ── */
+  .fases {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Engage grid (2 colunas → 1 coluna) ── */
+  .engage-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Act row (label+valor → coluna) ── */
+  .act-row {
+    grid-template-columns: 1fr !important;
+  }
+  .act-row .lbl {
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+
+  /* ── Tips grid (2 colunas → 1 coluna) ── */
+  .tips-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Music tips (3 colunas → 1 coluna) ── */
+  .music-tips {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Playlist (grid com painel lateral → coluna) ── */
+  .playlist-hero {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .playlist-left {
+    padding: 28px 24px !important;
+  }
+
+  .playlist-left h3 {
+    font-size: 26px !important;
+  }
+
+  .playlist-right {
+    border-left: none !important;
+    border-top: 1px solid rgba(255,255,255,.06);
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px !important;
+    min-width: unset;
+  }
+
+  .playlist-right .big {
+    font-size: 36px;
+  }
+
+  .playlist-right .sm {
+    font-size: 11px;
+    text-align: left;
+  }
+
+  /* ── Btn Spotify full width ── */
+  .playlist-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Capa ── */
+  .cover {
+    padding: 48px 24px 40px !important;
+    min-height: 90vh;
+  }
+
+  .cover-eyebrow {
+    font-size: 10px;
+  }
+
+  .cover-title {
+    font-size: 42px !important;
+  }
+
+  .cover-sub {
+    font-size: 13px;
+  }
+
+  .cover-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* ── Sec header ── */
+  .sec-header {
+    padding: 0 20px;
+  }
+
+  /* ── Pop-up ── */
+  .popup-box {
+    margin: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .popup-header h3 {
+    font-size: 24px;
+  }
+
+  /* ── Estratégias (lista) ── */
+  .strat-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px;
+  }
+
+  .strat-label {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+}
 </style>
 </head>
 <body>
