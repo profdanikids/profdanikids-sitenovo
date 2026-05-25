@@ -1076,6 +1076,35 @@ hr.divider { border:none; height:1px; background:rgba(0,0,0,.08); margin:28px 0;
     border-right: none !important;
     border-bottom: 1px solid rgba(0,0,0,.08);
   }
+  /* ── blist: strong em bloco no mobile ── */
+  .blist li {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .blist li strong {
+    display: block;
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  /* ── act-row: empilhar label/valor ── */
+  .act-row {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+  .act-row .lbl {
+    padding: 8px 16px 4px !important;
+    font-size: 11px;
+  }
+  .act-row .val {
+    padding: 4px 16px 10px !important;
+  }
+
+  /* ── act-head: ajuste ── */
+  .act-head h4 {
+    font-size: 16px;
+  }
+
 }
 </style>
 </head>
