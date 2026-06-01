@@ -8,6 +8,8 @@
     { "source": "/evento",        "destination": "https://personal-kids-app.vercel.app/evento" },
     { "source": "/evento/",       "destination": "https://personal-kids-app.vercel.app/evento" },
     { "source": "/equipe",        "destination": "https://personal-kids-app.vercel.app/equipe" },
-    { "source": "/equipe/",       "destination": "https://personal-kids-app.vercel.app/equipe" }
+    { "source": "/equipe/",       "destination": "https://personal-kids-app.vercel.app/equipe" },
+    { "source": "/inscricao",     "destination": "https://personal-kids-app.vercel.app/inscricao" },
+    { "source": "/inscricao/",    "destination": "https://personal-kids-app.vercel.app/inscricao" }
   ]
 }
