@@ -491,12 +491,13 @@
       return 'outro';
     }
     const payload = {
-      nome:        responsavel || aluno || null,
-      telefone:    telefone    || null,
-      email:       email       || null,
-      interesse:   mapRamo(ramo),
-      origem:      mapOrigem(origem),
-      estagio:     'novo',
+      nome:             responsavel || aluno || null,
+      nome_responsavel: responsavel || aluno || null,
+      telefone:         telefone    || null,
+      email:            email       || null,
+      interesse:        mapRamo(ramo),
+      origem:           mapOrigem(origem),
+      estagio:          'novo',
       observacoes: [
         aluno     && ('Criança: ' + aluno),
         instagram && ('Instagram: ' + instagram),
@@ -515,9 +516,13 @@
         },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) { const e = await res.text(); throw new Error(e); }
+      if (!res.ok) { const e = await res.text(); console.error('Supabase leads error:', e); throw new Error(e); }
     } catch(e) {
-      console.warn('Supabase (non-critical):', e.message);
+      console.error('Erro ao salvar lead:', e.message);
+      btn.disabled = false;
+      btn.textContent = '🚀 Quero minha aula grátis!';
+      alert('Erro ao enviar. Tente novamente.');
+      return;
     }
 
     document.getElementById('s-nome').textContent = aluno || responsavel;

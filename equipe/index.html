@@ -861,7 +861,8 @@ const totalSteps = 5;
 let profSelected = true;
 let recrSelected = false;
 
-document.getElementById('btn-prof').addEventListener('click', function() {
+document.getElementById('btn-prof').addEventListener('click', function(e) {
+  e.preventDefault();
   profSelected = !profSelected;
   if (!profSelected && !recrSelected) { profSelected = true; return; }
   document.getElementById('chk-prof').checked = profSelected;
@@ -870,7 +871,8 @@ document.getElementById('btn-prof').addEventListener('click', function() {
   updateRoleAreas();
 });
 
-document.getElementById('btn-recr').addEventListener('click', function() {
+document.getElementById('btn-recr').addEventListener('click', function(e) {
+  e.preventDefault();
   recrSelected = !recrSelected;
   if (!profSelected && !recrSelected) { recrSelected = true; return; }
   document.getElementById('chk-recr').checked = recrSelected;

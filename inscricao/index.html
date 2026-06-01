@@ -1072,7 +1072,7 @@ async function sbInsert(table, data) {
 
 const _submitOrig = window.submitForm;
 window.submitForm = async function() {
-  const ramoMap = { personal: "personal", reserva: "reserva_da_pedra", kids: "crianca_feliz" };
+  const ramoMap = { personal: "personal", reserva: "reserva_da_pedra", kids: "crianca_feliz", funcional: "crianca_feliz" };
   const ramo = (typeof selectedService !== "undefined" && ramoMap[selectedService]) || "personal";
 
   const resp = (document.getElementById("nomeResp")?.value || "").trim();
