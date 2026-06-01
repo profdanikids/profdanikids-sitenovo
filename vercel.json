@@ -1,7 +1,13 @@
 {
   "rewrites": [
-    { "source": "/guia", "destination": "/GUIA/index.html" },
-    { "source": "/guia/", "destination": "/GUIA/index.html" },
-    { "source": "/GUIA", "destination": "/GUIA/index.html" }
+    { "source": "/guia",          "destination": "/GUIA/index.html" },
+    { "source": "/guia/",         "destination": "/GUIA/index.html" },
+    { "source": "/GUIA",          "destination": "/GUIA/index.html" },
+    { "source": "/experimental",  "destination": "https://personal-kids-app.vercel.app/experimental" },
+    { "source": "/experimental/", "destination": "https://personal-kids-app.vercel.app/experimental" },
+    { "source": "/evento",        "destination": "https://personal-kids-app.vercel.app/evento" },
+    { "source": "/evento/",       "destination": "https://personal-kids-app.vercel.app/evento" },
+    { "source": "/equipe",        "destination": "https://personal-kids-app.vercel.app/equipe" },
+    { "source": "/equipe/",       "destination": "https://personal-kids-app.vercel.app/equipe" }
   ]
 }
