@@ -474,11 +474,34 @@
     const ramo        = getPill('ramo_pills');
     const origem      = getPill('origem_pills');
 
+    function mapRamo(r) {
+      if (!r) return 'personal';
+      const s = r.toLowerCase();
+      if (s.includes('recrea')) return 'recreacao';
+      if (s.includes('reserva') || s.includes('feliz')) return 'outro';
+      return 'personal';
+    }
+    function mapOrigem(o) {
+      if (!o) return null;
+      const s = o.toLowerCase();
+      if (s.includes('instagram'))  return 'instagram';
+      if (s.includes('whatsapp'))   return 'whatsapp';
+      if (s.includes('indica'))     return 'indicacao';
+      if (s.includes('site'))       return 'site';
+      return 'outro';
+    }
     const payload = {
-      aluno, responsavel, telefone, email, instagram, obs,
-      ramo_interesse: ramo,
-      origem: origem,
-      status: 'novo',
+      nome:        responsavel || aluno || null,
+      telefone:    telefone    || null,
+      email:       email       || null,
+      interesse:   mapRamo(ramo),
+      origem:      mapOrigem(origem),
+      estagio:     'novo',
+      observacoes: [
+        aluno     && ('Criança: ' + aluno),
+        instagram && ('Instagram: ' + instagram),
+        obs       && obs,
+      ].filter(Boolean).join(' | ') || null,
     };
 
     try {

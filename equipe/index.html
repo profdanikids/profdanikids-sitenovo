@@ -952,14 +952,18 @@ async function submitForm() {
     referencias: val('inp-referencias'),
   });
 
+  // Mapeia tipo interno → funcao aceita pelo admin
+  const funcaoMap = { professor: 'Professor(a)', recreador: 'Recreador(a)', ambos: 'Professor(a) e Recreador(a)' };
+
   const payload = {
-    nome:       val('inp-nome')     || 'Sem nome',
-    telefone:   val('inp-telefone') || null,
-    email:      val('inp-email')    || null,
-    cpf:        val('inp-cpf')      || null,
-    tipo,
-    ativo:      false,
-    observacoes: obs,
+    nome:          val('inp-nome')     || 'Sem nome',
+    telefone:      val('inp-telefone') || null,
+    email:         val('inp-email')    || null,
+    cpf:           val('inp-cpf')      || null,
+    funcao:        funcaoMap[tipo]     || 'Outro',
+    tipo_contrato: 'autonomo',
+    ativo:         false,
+    observacoes:   obs,
   };
 
   try {

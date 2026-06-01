@@ -762,11 +762,12 @@
         <label>Duração prevista da recreação</label>
         <select id="duracaoRecracao">
           <option value="">Selecione...</option>
-          <option>1 hora</option>
-          <option>1h30</option>
           <option>2 horas</option>
           <option>2h30</option>
-          <option>3 horas ou mais</option>
+          <option>3 horas</option>
+          <option>3h30</option>
+          <option>4 horas</option>
+          <option>4 horas ou mais</option>
           <option>A combinar</option>
         </select>
       </div>
@@ -1288,40 +1289,53 @@ window.submitForm = async function() {
   const email  = (document.getElementById("email")?.value || "").trim();
   const ig     = (document.getElementById("instagram")?.value || "").trim();
   const local  = (document.getElementById("endereco")?.value || "").trim();
-  const cep    = (document.getElementById("cep")?.value || "").trim();
   const data   = document.getElementById("dataEvento")?.value || null;
   const hIni   = document.getElementById("horarioInicio")?.value || null;
   const hFim   = document.getElementById("horarioFim")?.value || null;
-  const origem = document.getElementById("comoConheceu")?.value || null;
+  const tema   = (document.getElementById("temaFesta")?.value || "").trim();
 
   if (!nome) { alert("Informe o nome do cliente."); return; }
 
-  const eventoData = {
-    cliente:    nome,
-    local:      local,
-    data_evento: data ? new Date(data + "T" + (hIni || "00:00")).toISOString() : null,
-    status:     "novo_lead",
-    observacoes: (document.getElementById("observacoes")?.value || "").trim() || null,
-    pending_calendar_sync: true,
-  };
+  // Mapeia tipo do evento para valor aceito pelo admin
+  function mapTipo(t) {
+    if (!t) return "outro";
+    const s = t.toLowerCase();
+    if (s.includes("aniversário") || s.includes("aniversario") || s.includes("temática") || s.includes("tematica")) return "festa";
+    if (s.includes("escolar"))    return "evento_escola";
+    if (s.includes("colônia") || s.includes("colonia")) return "colonia_ferias";
+    return "outro";
+  }
+  const tipoRaw = document.getElementById("tipoEvento")?.querySelector(".radio-pill.selected")?.textContent?.trim() || "";
 
-  const briefingData = {
-    tema:               (document.getElementById("temaFesta")?.value || "").trim() || null,
-    idade_media:        parseInt(document.getElementById("idadeAniversariante")?.value) || null,
-    quantidade_criancas: (typeof counts !== "undefined") ? (counts.meninos + counts.meninas) : null,
-    restricoes:         (document.getElementById("descNEE")?.value || "").trim() || null,
-    horario_inicio:     hIni || null,
-    horario_fim:        hFim || null,
-    contato_responsavel: tel,
-    observacoes:        (document.getElementById("expectativas")?.value || "").trim() || null,
+  // Monta observações consolidadas com dados extras do briefing
+  const obsPartes = [
+    tema                                     && ("Tema: " + tema),
+    ig                                       && ("Instagram: " + ig),
+    (document.getElementById("descNEE")?.value || "").trim() && ("Necessidades especiais: " + document.getElementById("descNEE").value.trim()),
+    (document.getElementById("expectativas")?.value || "").trim() && (document.getElementById("expectativas").value.trim()),
+    (document.getElementById("observacoes")?.value || "").trim() && (document.getElementById("observacoes").value.trim()),
+    hFim                                     && ("Término: " + hFim),
+  ].filter(Boolean).join(" | ") || null;
+
+  // Quantidade de crianças
+  const qtdCriancas = (typeof counts !== "undefined") ? (counts.meninos + counts.meninas) || null : null;
+
+  // Payload alinhado com a tabela eventos_recreacao do admin
+  const payload = {
+    nome:                tema || ("Evento de " + nome),
+    tipo:                mapTipo(tipoRaw),
+    data_evento:         data || null,
+    horario:             hIni || null,
+    local_evento:        local || null,
+    capacidade:          qtdCriancas,
+    contato_responsavel: nome,
+    telefone_contato:    tel  || null,
+    status:              "agendado",
+    observacoes:         obsPartes,
   };
 
   try {
-    const rows = await sbPost("recreacao_eventos", eventoData);
-    const evento = Array.isArray(rows) ? rows[0] : rows;
-    if (evento?.id) {
-      await sbPost("briefing_eventos", { ...briefingData, evento_id: evento.id });
-    }
+    await sbPost("eventos_recreacao", payload);
   } catch(e) { console.warn("Supabase:", e.message); }
 
   if (_submitOrig) _submitOrig();
