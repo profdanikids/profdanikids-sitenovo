@@ -1324,12 +1324,14 @@ window.submitForm = async function() {
   const payload = {
     nome:                tema || ("Evento de " + nome),
     tipo:                mapTipo(tipoRaw),
-    data_evento:         data || null,
+    data_evento:         data ? new Date(data + "T" + (hIni || "00:00")).toISOString() : null,
     horario:             hIni || null,
     local_evento:        local || null,
     capacidade:          qtdCriancas,
     contato_responsavel: nome,
     telefone_contato:    tel  || null,
+    cliente:             nome,
+    local:               local || null,
     status:              "agendado",
     observacoes:         obsPartes,
   };
