@@ -491,13 +491,15 @@
       return 'outro';
     }
     const payload = {
-      nome:             responsavel || aluno || null,
-      nome_responsavel: responsavel || aluno || null,
+      nome:             responsavel || aluno || 'Lead do site',
+      nome_responsavel: responsavel || aluno || 'Lead do site',
       telefone:         telefone    || null,
       email:            email       || null,
       interesse:        mapRamo(ramo),
-      origem:           mapOrigem(origem),
+      origem:           mapOrigem(origem) || 'outro',
       estagio:          'novo',
+      status:           'novo',
+      is_active:        true,
       observacoes: [
         aluno     && ('Criança: ' + aluno),
         instagram && ('Instagram: ' + instagram),
