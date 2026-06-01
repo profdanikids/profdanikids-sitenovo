@@ -1320,7 +1320,7 @@ window.submitForm = async function() {
   // Quantidade de crianças
   const qtdCriancas = (typeof counts !== "undefined") ? (counts.meninos + counts.meninas) || null : null;
 
-  // Payload alinhado com a tabela eventos_recreacao do admin
+  // Payload alinhado com a tabela recreacao_eventos do admin
   const payload = {
     nome:                tema || ("Evento de " + nome),
     tipo:                mapTipo(tipoRaw),
@@ -1335,7 +1335,7 @@ window.submitForm = async function() {
   };
 
   try {
-    await sbPost("eventos_recreacao", payload);
+    await sbPost("recreacao_eventos", payload);
   } catch(e) { console.warn("Supabase:", e.message); }
 
   if (_submitOrig) _submitOrig();
