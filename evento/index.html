@@ -1307,14 +1307,35 @@ window.submitForm = async function() {
   }
   const tipoRaw = document.getElementById("tipoEvento")?.querySelector(".radio-pill.selected")?.textContent?.trim() || "";
 
+  // Dados das crianças
+  const meninos = (typeof counts !== "undefined") ? counts.meninos : 0;
+  const meninas = (typeof counts !== "undefined") ? counts.meninas : 0;
+
+  // Faixa etária selecionada
+  const faixasSel = Array.from(document.getElementById("faixaEtaria")?.querySelectorAll(".check-item.selected") || [])
+    .map(el => el.textContent.trim()).filter(Boolean);
+
+  // Duração
+  const duracao = (document.getElementById("duracaoRecracao")?.value || "").trim();
+
+  // Dados do aniversariante
+  const nomeAniv  = (document.getElementById("nomeAniversariante")?.value || "").trim();
+  const idadeAniv = (document.getElementById("idadeAniversariante")?.value || "").trim();
+
   // Monta observações consolidadas com dados extras do briefing
   const obsPartes = [
     tema                                     && ("Tema: " + tema),
+    nomeAniv                                 && ("Aniversariante: " + nomeAniv),
+    idadeAniv                                && ("Idade: " + idadeAniv + " anos"),
     ig                                       && ("Instagram: " + ig),
-    (document.getElementById("descNEE")?.value || "").trim() && ("Necessidades especiais: " + document.getElementById("descNEE").value.trim()),
+    meninos > 0                              && ("Meninos: " + meninos),
+    meninas > 0                              && ("Meninas: " + meninas),
+    faixasSel.length > 0                     && ("Faixa etária: " + faixasSel.join(", ")),
+    duracao                                  && ("Duração: " + duracao),
+    hFim                                     && ("Término: " + hFim),
+    (document.getElementById("descNEE")?.value || "").trim() && ("NEE: " + document.getElementById("descNEE").value.trim()),
     (document.getElementById("expectativas")?.value || "").trim() && (document.getElementById("expectativas").value.trim()),
     (document.getElementById("observacoes")?.value || "").trim() && (document.getElementById("observacoes").value.trim()),
-    hFim                                     && ("Término: " + hFim),
   ].filter(Boolean).join(" | ") || null;
 
   // Quantidade de crianças
