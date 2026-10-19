@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Festa da Família 2026 | Prof Dani Kids</title>
+<meta name="description" content="Inscrição para a Festa da Família Prof Dani Kids. 29/11, 10h30, Arena Bater Bola, São José.">
+<meta property="og:title" content="Festa da Família | Prof Dani Kids">
+<meta property="og:description" content="29/11 às 10h30 na Arena Bater Bola. Recreação, churrasco, brindes e fotógrafo. Faça sua inscrição!">
+<meta property="og:image" content="https://www.profdanikids.com/festa/flyer.jpg">
+<meta name="theme-color" content="#29aae1">
+<link rel="icon" href="/principal_PNG.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --blue:#29aae1;--blue-dark:#1a7fb5;--blue-soft:#e8f6fd;
+    --orange:#f7941d;--orange-dark:#e8780a;--orange-soft:#fff3e3;
+    --yellow:#fdc33c;
+    --ink:#1f2937;--muted:#5b6474;--line:#e3e8ef;--bg:#f4f9fc;--white:#fff;
+    --radius:18px;--shadow:0 6px 24px rgba(26,127,181,.10);
+  }
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.45}
+  .wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
+  button{font-family:inherit;cursor:pointer}
+  input,select,textarea{font-family:inherit;font-size:16px}
+
+  /* HERO */
+  .hero{position:relative;margin:0 -16px;}
+  .hero img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;object-position:top}
+  .hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(transparent,var(--bg))}
+  .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 20px;margin-top:16px}
+  .card.overlap{position:relative;z-index:2;margin-top:-28px}
+  h1{font-size:26px;font-weight:900;color:var(--blue-dark);line-height:1.15}
+  h1 span{color:var(--orange)}
+  .lead{color:var(--muted);margin-top:8px;font-size:15px}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+  .fact{background:var(--blue-soft);border-radius:14px;padding:12px 8px;text-align:center}
+  .fact b{display:block;font-size:17px;font-weight:900;color:var(--blue-dark)}
+  .fact small{font-size:12px;color:var(--muted);font-weight:700}
+  h2{font-size:18px;font-weight:900;color:var(--blue-dark);margin-bottom:12px}
+  .incl{list-style:none;display:grid;gap:10px}
+  .incl li{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:600}
+  .incl .ic{flex:0 0 28px;height:28px;border-radius:50%;background:var(--orange-soft);display:grid;place-items:center;font-size:15px}
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .price{border:2px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+  .price small{display:block;font-size:13px;color:var(--muted);font-weight:700}
+  .price b{font-size:24px;font-weight:900;color:var(--orange-dark)}
+  .price em{font-style:normal;font-size:12px;color:var(--muted)}
+  .note{margin-top:12px;background:var(--orange-soft);border-radius:12px;padding:12px 14px;font-size:14px;color:#7a4300;font-weight:600}
+
+  /* BUTTONS */
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:14px;padding:16px 18px;font-size:17px;font-weight:800;transition:transform .15s,box-shadow .15s,background .15s;text-decoration:none}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;box-shadow:0 6px 18px rgba(232,120,10,.35)}
+  .btn-blue{background:var(--blue);color:#fff;box-shadow:0 6px 18px rgba(41,170,225,.3)}
+  .btn-ghost{background:transparent;color:var(--muted);font-weight:700;font-size:15px;padding:12px}
+  .btn-wa{background:#25d366;color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.35)}
+  .btn[disabled]{opacity:.6;pointer-events:none}
+  .sticky-cta{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 30%);margin-top:8px;z-index:5}
+
+  /* FORM */
+  .progress{display:flex;gap:6px;margin:22px 0 4px}
+  .progress i{flex:1;height:6px;border-radius:6px;background:var(--line);transition:background .3s}
+  .progress i.on{background:linear-gradient(90deg,var(--blue),var(--orange))}
+  .step-label{font-size:13px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.04em;margin-top:10px}
+  .field{margin-top:16px}
+  .field>label,.flabel{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+  .field .hint{font-size:13px;color:var(--muted);margin:-2px 0 8px}
+  .input{width:100%;border:2px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;color:var(--ink);transition:border-color .15s}
+  .input:focus{outline:none;border-color:var(--blue)}
+  .input.err{border-color:#e5484d}
+  .errmsg{color:#d93036;font-size:13px;font-weight:700;margin-top:6px;display:none}
+  .errmsg.show{display:block}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-size:14px;font-weight:700;color:var(--ink)}
+  .chip.on{border-color:var(--orange);background:var(--orange-soft);color:var(--orange-dark)}
+  .counter{display:flex;align-items:center;justify-content:space-between;border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+  .counter .who b{display:block;font-size:16px;font-weight:800}
+  .counter .who small{color:var(--muted);font-size:13px;font-weight:600}
+  .stepper{display:flex;align-items:center;gap:12px}
+  .stepper button{width:40px;height:40px;border-radius:50%;border:2px solid var(--blue);background:#fff;color:var(--blue);font-size:22px;font-weight:800;line-height:1}
+  .stepper button:disabled{border-color:var(--line);color:var(--line)}
+  .stepper output{min-width:22px;text-align:center;font-size:20px;font-weight:900}
+  .people{display:grid;gap:10px;margin-top:10px}
+  .person{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:start}
+  .person.adult{grid-template-columns:1fr}
+  .person .tag{grid-column:1/-1;font-size:12px;font-weight:800;color:var(--blue-dark);margin-bottom:-4px}
+  .total-bar{display:flex;justify-content:space-between;align-items:center;background:var(--blue-soft);border-radius:14px;padding:14px 16px;margin-top:18px}
+  .total-bar span{font-weight:700;color:var(--muted);font-size:14px}
+  .total-bar b{font-size:24px;font-weight:900;color:var(--blue-dark)}
+  .yn{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .yn button{border:2px solid var(--line);background:#fff;border-radius:12px;padding:13px;font-size:15px;font-weight:800;color:var(--ink)}
+  .yn button.on{border-color:var(--blue);background:var(--blue-soft);color:var(--blue-dark)}
+  .hidden{display:none!important}
+  .summary{display:grid;gap:0}
+  .summary .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .summary .row:last-child{border-bottom:0}
+  .summary .row span{color:var(--muted);font-weight:700}
+  .summary .row b{text-align:right;font-weight:800}
+  .consent{display:flex;gap:12px;align-items:flex-start;border:2px solid var(--line);border-radius:14px;padding:14px;margin-top:14px;font-size:14px;font-weight:600;cursor:pointer}
+  .consent input{width:22px;height:22px;accent-color:var(--orange);flex:0 0 22px;margin-top:1px}
+
+  /* SUCCESS */
+  .success{text-align:center}
+  .success .badge{width:76px;height:76px;margin:6px auto 12px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:grid;place-items:center;font-size:38px;color:#fff;animation:pop .5s ease}
+  @keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+  .code{display:inline-block;margin-top:8px;background:var(--orange-soft);color:var(--orange-dark);font-weight:900;border-radius:10px;padding:6px 12px;letter-spacing:.06em}
+  .steps-next{text-align:left;list-style:none;counter-reset:s;display:grid;gap:12px;margin:18px 0}
+  .steps-next li{counter-increment:s;display:flex;gap:12px;font-size:15px;font-weight:600}
+  .steps-next li::before{content:counter(s);flex:0 0 28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:grid;place-items:center;font-size:14px}
+  footer{text-align:center;margin-top:28px;color:var(--muted);font-size:13px}
+  footer img{height:54px;display:block;margin:0 auto 6px}
+  .fade{animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== TELA 0: APRESENTAÇÃO ===== -->
+  <section id="s0" class="fade">
+    <div class="hero"><img src="/festa/flyer.jpg" alt="Festa da Família 29/11 às 10h30 na Arena Bater Bola"></div>
+
+    <div class="card overlap">
+      <h1>Festa da Família <span>Prof Dani Kids</span> 🧡💙</h1>
+      <p class="lead">Um dia especial de integração, diversão e boas memórias com nossas crianças e famílias!</p>
+      <div class="facts">
+        <div class="fact"><b>29/11</b><small>domingo</small></div>
+        <div class="fact"><b>10h30</b><small>início</small></div>
+        <div class="fact"><b>São José</b><small>Arena Bater Bola</small></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>O que está incluso</h2>
+      <ul class="incl">
+        <li><span class="ic">🎈</span>Recreação e atividades em família</li>
+        <li><span class="ic">🍖</span>Churrasco completo com entradas e sobremesa</li>
+        <li><span class="ic">🎁</span>Brindes para as crianças</li>
+        <li><span class="ic">📸</span>Fotógrafo e espaço para práticas esportivas</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Valores</h2>
+      <div class="prices">
+        <div class="price"><small>👨 Adulto</small><b>R$ 80</b><br><em>por pessoa</em></div>
+        <div class="price"><small>🧒 Criança</small><b>R$ 50</b><br><em>por criança</em></div>
+      </div>
+      <div class="note">💳 Pagamento via Pix até <b>11/11</b>. A chave Pix é enviada pelo WhatsApp logo após a inscrição.</div>
+    </div>
+
+    <div class="sticky-cta"><button class="btn btn-primary" onclick="go(1)">Fazer inscrição da minha família</button></div>
+  </section>
+
+  <!-- ===== FORMULÁRIO ===== -->
+  <section id="form" class="hidden">
+    <div class="progress"><i></i><i></i><i></i></div>
+
+    <!-- ETAPA 1 -->
+    <div id="s1" class="step hidden">
+      <p class="step-label">Etapa 1 de 3</p>
+      <div class="card" style="margin-top:8px">
+        <h2>Quem está inscrevendo?</h2>
+        <div class="field">
+          <label for="resp">Nome do responsável</label>
+          <input id="resp" class="input" autocomplete="name" placeholder="Ex.: Mariana Souza">
+          <p class="errmsg" id="e-resp">Digite seu nome completo.</p>
+        </div>
+        <div class="field">
+          <label for="wpp">WhatsApp</label>
+          <input id="wpp" class="input" inputmode="tel" autocomplete="tel" placeholder="(48) 99999-9999" maxlength="15">
+          <p class="errmsg" id="e-wpp">Digite um WhatsApp válido com DDD.</p>
+        </div>
+        <div class="field">
+          <span class="flabel">Como vocês conhecem a Prof Dani Kids?</span>
+          <div class="chips" id="vinculo">
+            <button type="button" class="chip">Aluno Personal Kids</button>
+            <button type="button" class="chip">Funcional Kids Reserva da Pedra</button>
+            <button type="button" class="chip">Funcional Kids Colégio Criança Feliz</button>
+            <button type="button" class="chip">Convidado de uma família</button>
+            <button type="button" class="chip">Outro</button>
+          </div>
+          <p class="errmsg" id="e-vinc">Escolha uma opção.</p>
+        </div>
+      </div>
+      <div class="sticky-cta"><button class="btn btn-blue" onclick="next1()">Continuar</button></div>
+    </div>
+
+    <!-- ETAPA 2 -->
+    <div id="s2" class="step hidden">
+      <p class="step-label">Etapa 2 de 3</p>
+      <div class="card" style="margin-top:8px">
+        <h2>Quem vai na festa?</h2>
+
+        <div class="field">
+          <div class="counter">
+            <div class="who"><b>👨 Adultos</b><small>R$ 80 por pessoa</small></div>
+            <div class="stepper"><button type="button" id="aMinus">−</button><output id="aCount">1</output><button type="button" id="aPlus">+</button></div>
+          </div>
+          <div class="people" id="adults"></div>
+        </div>
+
+        <div class="field">
+          <div class="counter">
+            <div class="who"><b>🧒 Crianças</b><small>R$ 50 por criança</small></div>
+            <div class="stepper"><button type="button" id="cMinus">−</button><output id="cCount">1</output><button type="button" id="cPlus">+</button></div>
+          </div>
+          <div class="people" id="kids"></div>
+        </div>
+        <p class="errmsg" id="e-people">Preencha o nome de todos os participantes e a idade das crianças.</p>
+
+        <div class="field">
+          <span class="flabel">Alguém tem restrição alimentar?</span>
+          <p class="hint">Alergia, intolerância, vegetariano...</p>
+          <div class="yn" id="rest"><button type="button" data-v="Não">Não</button><button type="button" data-v="Sim">Sim</button></div>
+          <textarea id="restTxt" class="input hidden" rows="2" style="margin-top:8px" placeholder="Quem e qual restrição? Ex.: Pedro, alergia a lactose"></textarea>
+          <p class="errmsg" id="e-rest">Responda e, se tiver, descreva a restrição.</p>
+        </div>
+
+        <div class="total-bar"><span>Total da família</span><b id="total2">R$ 130,00</b></div>
+      </div>
+      <div class="sticky-cta"><button class="btn btn-blue" onclick="next2()">Continuar</button><button class="btn btn-ghost" onclick="go(1)">Voltar</button></div>
+    </div>
+
+    <!-- ETAPA 3 -->
+    <div id="s3" class="step hidden">
+      <p class="step-label">Etapa 3 de 3</p>
+      <div class="card" style="margin-top:8px">
+        <h2>Confira a inscrição</h2>
+        <div class="summary" id="summary"></div>
+        <div class="total-bar"><span>Total a pagar</span><b id="total3">R$ 0,00</b></div>
+
+        <div class="field">
+          <span class="flabel">Uso de imagem</span>
+          <p class="hint">Teremos fotógrafo no evento. As fotos podem ser usadas nas redes da Prof Dani Kids?</p>
+          <div class="yn" id="img"><button type="button" data-v="Autorizo">Autorizo</button><button type="button" data-v="Não autorizo">Não autorizo</button></div>
+          <p class="errmsg" id="e-img">Escolha uma opção.</p>
+        </div>
+
+        <div class="field">
+          <label for="obs">Alguma observação? <span style="font-weight:600;color:var(--muted)">(opcional)</span></label>
+          <textarea id="obs" class="input" rows="2" placeholder="Escreva aqui se quiser nos avisar algo"></textarea>
+        </div>
+
+        <label class="consent"><input type="checkbox" id="ok"><span>Estou ciente de que a inscrição é confirmada após o pagamento via Pix até <b>11/11</b>, com envio do comprovante pelo WhatsApp.</span></label>
+        <p class="errmsg" id="e-ok">Marque para confirmar.</p>
+      </div>
+      <div class="sticky-cta"><button class="btn btn-primary" id="sendBtn" onclick="submitForm()">Confirmar inscrição</button><button class="btn btn-ghost" onclick="go(2)">Voltar</button></div>
+    </div>
+  </section>
+
+  <!-- ===== SUCESSO ===== -->
+  <section id="s4" class="hidden">
+    <div class="card success fade" style="margin-top:28px">
+      <div class="badge">✓</div>
+      <h1>Inscrição recebida!</h1>
+      <p class="lead">Falta só um passo para garantir a vaga da sua família.</p>
+      <span class="code" id="codeTxt">FF-0000</span>
+      <div class="total-bar"><span>Valor total</span><b id="total4">R$ 0,00</b></div>
+      <ol class="steps-next">
+        <li>Toque no botão abaixo e envie a mensagem pronta no WhatsApp.</li>
+        <li>Você recebe a chave Pix da organização.</li>
+        <li>Faça o Pix até 11/11 e envie o comprovante na mesma conversa.</li>
+      </ol>
+      <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        Enviar no WhatsApp
+      </a>
+      <p class="lead" style="font-size:13px;margin-top:14px">Estamos preparando tudo com muito carinho. Contamos com vocês! 🧡💙</p>
+    </div>
+  </section>
+
+  <footer><img src="/principal_PNG.png" alt="Daniel Felipe Personal Kids">@profdani_kids</footer>
+</div>
+
+<script>
+/* ========= CONFIGURAÇÃO ========= */
+const SCRIPT_URL = '';            // URL do Apps Script (Implantar > App da Web)
+const WHATSAPP   = '5548996497497';
+const PRICE_ADULT = 80, PRICE_KID = 50;
+
+/* ========= ESTADO ========= */
+const st = { vinculo:'', adults:[''], kids:[{nome:'',idade:''}], rest:'', img:'' };
+const $ = id => document.getElementById(id);
+const brl = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const total = () => st.adults.length*PRICE_ADULT + st.kids.length*PRICE_KID;
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function go(n){
+  $('s0').classList.toggle('hidden', n!==0);
+  $('form').classList.toggle('hidden', !(n>=1 && n<=3));
+  $('s4').classList.toggle('hidden', n!==4);
+  [1,2,3].forEach(i=>$('s'+i).classList.toggle('hidden', i!==n));
+  document.querySelectorAll('.progress i').forEach((el,i)=>el.classList.toggle('on', i<n));
+  if(n>=1&&n<=3) $('s'+n).classList.add('fade');
+  if(n===2){ if(!st.adults[0] && $('resp').value.trim()) st.adults[0]=$('resp').value.trim(); renderPeople(); }
+  if(n===3) renderSummary();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function err(id,show,inputEl){ $(id).classList.toggle('show',show); if(inputEl) inputEl.classList.toggle('err',show); return !show; }
+
+/* ========= ETAPA 1 ========= */
+$('wpp').addEventListener('input',e=>{
+  let d=e.target.value.replace(/\D/g,'').slice(0,11);
+  e.target.value = d.length>6 ? `(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}` : d.length>2 ? `(${d.slice(0,2)}) ${d.slice(2)}` : d;
+});
+$('vinculo').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('#vinculo .chip').forEach(c=>c.classList.remove('on'));
+  b.classList.add('on'); st.vinculo=b.textContent; err('e-vinc',false);
+});
+function next1(){
+  const r=$('resp').value.trim(), w=$('wpp').value.replace(/\D/g,'');
+  const ok = [err('e-resp', r.split(/\s+/).length<2 || r.length<5, $('resp')),
+              err('e-wpp', w.length<10, $('wpp')),
+              err('e-vinc', !st.vinculo)].every(Boolean);
+  if(ok) go(2);
+}
+
+/* ========= ETAPA 2 ========= */
+function renderPeople(){
+  $('aCount').value=st.adults.length; $('cCount').value=st.kids.length;
+  $('aMinus').disabled=st.adults.length<=1; $('cMinus').disabled=st.kids.length<=0;
+  $('aPlus').disabled=st.adults.length>=10; $('cPlus').disabled=st.kids.length>=10;
+  $('adults').innerHTML = st.adults.map((n,i)=>`<div class="person adult"><input class="input" data-a="${i}" placeholder="Nome do adulto ${i+1}" value="${esc(n)}"></div>`).join('');
+  $('kids').innerHTML = st.kids.map((k,i)=>`<div class="person"><input class="input" data-k="${i}" data-f="nome" placeholder="Nome da criança ${i+1}" value="${esc(k.nome)}"><input class="input" data-k="${i}" data-f="idade" inputmode="numeric" maxlength="2" placeholder="Idade" value="${esc(k.idade)}"></div>`).join('');
+  $('total2').textContent=brl(total());
+}
+$('adults').addEventListener('input',e=>{ const i=e.target.dataset.a; if(i!==undefined){ st.adults[i]=e.target.value; e.target.classList.remove('err'); }});
+$('kids').addEventListener('input',e=>{ const i=e.target.dataset.k; if(i!==undefined){ if(e.target.dataset.f==='idade') e.target.value=e.target.value.replace(/\D/g,''); st.kids[i][e.target.dataset.f]=e.target.value; e.target.classList.remove('err'); }});
+$('aPlus').onclick=()=>{st.adults.push('');renderPeople()};
+$('aMinus').onclick=()=>{st.adults.pop();renderPeople()};
+$('cPlus').onclick=()=>{st.kids.push({nome:'',idade:''});renderPeople()};
+$('cMinus').onclick=()=>{st.kids.pop();renderPeople()};
+function yn(groupId,key,cb){
+  $(groupId).addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    $(groupId).querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); st[key]=b.dataset.v; cb&&cb(b.dataset.v);
+  });
+}
+yn('rest','rest',v=>{ $('restTxt').classList.toggle('hidden',v!=='Sim'); err('e-rest',false); if(v==='Sim') $('restTxt').focus(); });
+yn('img','img',()=>err('e-img',false));
+function next2(){
+  let bad=false;
+  document.querySelectorAll('#adults input,#kids input').forEach(inp=>{
+    const empty=!inp.value.trim(); inp.classList.toggle('err',empty); if(empty) bad=true;
+  });
+  const okP = err('e-people',bad);
+  const okR = err('e-rest', !st.rest || (st.rest==='Sim' && !$('restTxt').value.trim()));
+  if(okP && okR) go(3);
+}
+
+/* ========= ETAPA 3 ========= */
+function kidsTxt(){ return st.kids.map(k=>`${k.nome.trim()} (${k.idade} anos)`).join(', ') }
+function restTxt(){ return st.rest==='Sim' ? $('restTxt').value.trim() : 'Não' }
+function renderSummary(){
+  const rows=[
+    ['Responsável',$('resp').value.trim()],
+    ['WhatsApp',$('wpp').value],
+    ['Vínculo',st.vinculo],
+    [`Adultos (${st.adults.length})`,st.adults.map(a=>a.trim()).join(', ')],
+    [`Crianças (${st.kids.length})`,st.kids.length?kidsTxt():'Nenhuma'],
+    ['Restrição alimentar',restTxt()]
+  ];
+  $('summary').innerHTML=rows.map(([k,v])=>`<div class="row"><span>${k}</span><b>${esc(v)}</b></div>`).join('');
+  $('total3').textContent=brl(total());
+}
+$('ok').addEventListener('change',()=>err('e-ok',false));
+
+async function submitForm(){
+  const okI=err('e-img',!st.img), okC=err('e-ok',!$('ok').checked);
+  if(!okI||!okC) return;
+  const btn=$('sendBtn'); btn.disabled=true; btn.textContent='Enviando...';
+  const code='FF-'+Math.random().toString(36).slice(2,6).toUpperCase();
+  const data={
+    codigo:code,
+    responsavel:$('resp').value.trim(),
+    whatsapp:$('wpp').value,
+    vinculo:st.vinculo,
+    qtdAdultos:st.adults.length,
+    adultos:st.adults.map(a=>a.trim()).join(', '),
+    qtdCriancas:st.kids.length,
+    criancas:st.kids.length?kidsTxt():'',
+    restricao:restTxt(),
+    imagem:st.img,
+    observacoes:$('obs').value.trim(),
+    total:total()
+  };
+  try{
+    if(SCRIPT_URL){
+      await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
+    } else { console.warn('SCRIPT_URL não configurada. Dados:',data); }
+  }catch(e){ console.error(e); }
+  showSuccess(data);
+}
+function showSuccess(d){
+  $('codeTxt').textContent='Inscrição '+d.codigo;
+  $('total4').textContent=brl(d.total);
+  const msg=`Olá, Prof Dani! 🎉 Fiz a inscrição na *Festa da Família*.\n\n`+
+    `📋 Código: *${d.codigo}*\n👤 Responsável: ${d.responsavel}\n`+
+    `👨 Adultos: ${d.qtdAdultos}\n🧒 Crianças: ${d.qtdCriancas}${d.criancas?' ('+d.criancas+')':''}\n`+
+    `💰 Total: *${brl(d.total)}*\n\nPode me enviar a chave Pix? Envio o comprovante aqui mesmo.`;
+  $('waBtn').href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  go(4);
+}
+renderPeople();
+</script>
+</body>
+</html>
