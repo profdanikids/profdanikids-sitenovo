@@ -777,24 +777,38 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Detectar origem do visitante
-function getOrigem() {
+function detectarOrigem() {
   const ref = document.referrer.toLowerCase();
-  if (ref.includes('instagram')) return 'Instagram';
-  if (ref.includes('google')) return 'Google';
-  if (ref.includes('facebook')) return 'Facebook';
-  if (ref.includes('tiktok')) return 'TikTok';
-  // Verificar parâmetro UTM na URL
   const params = new URLSearchParams(window.location.search);
-  const utm = params.get('utm_source');
-  if (utm) {
-    if (utm.includes('instagram')) return 'Instagram';
-    if (utm.includes('google')) return 'Google';
-    if (utm.includes('facebook')) return 'Facebook';
-    if (utm.includes('tiktok')) return 'TikTok';
-    return utm.charAt(0).toUpperCase() + utm.slice(1);
-  }
+  const utm = (params.get('utm_source') || '').toLowerCase();
+  if (['ig', 'instagram'].some(t => utm.includes(t)) || ref.includes('instagram')) return 'Instagram';
+  if (utm.includes('google') || params.has('gclid') || ref.includes('google')) return 'Google';
+  if (['fb', 'facebook'].some(t => utm === t || utm.includes('facebook')) || ref.includes('facebook')) return 'Facebook';
+  if (utm.includes('tiktok') || ref.includes('tiktok')) return 'TikTok';
+  if (params.has('fbclid')) return 'Instagram';
   return null;
 }
+
+// Guarda a origem da visita para não perder ao navegar pelo site
+function getOrigem() {
+  try {
+    const salva = sessionStorage.getItem('origemVisita');
+    if (salva) return salva === 'Direto' ? null : salva;
+    const o = detectarOrigem();
+    sessionStorage.setItem('origemVisita', o || 'Direto');
+    return o;
+  } catch (e) { return detectarOrigem(); }
+}
+getOrigem();
+
+// Limpa os códigos de rastreio da barra de endereço (depois de registrar a origem)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (window.location.search && /utm_|fbclid|gclid|igsh/.test(window.location.search)) {
+      history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+  }, 3000);
+});
 
 function montarMensagem(tipo) {
   const origem = getOrigem();
